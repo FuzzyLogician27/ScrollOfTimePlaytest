@@ -14,11 +14,11 @@
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
         <div class="resource flex-group-center">
-          <label for="system.health.value" class="resource-label">Health</label>
+          <label for="system.speed.value" class="resource-label">Speed</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number"/>
+          <input type="text" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number"/>
           <span> / </span>
-          <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number"/>
+          <input type="text" name="system.speed.max" value="{{system.speed.max}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -66,9 +66,9 @@
           <div class="abilities flexcol">
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{ability.label}}</label>
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="(@abilities.{{key}}.mod)d10" data-label="{{ability.label}}">{{ability.label}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+              <span class="ability-mod rollable" data-roll="(@abilities.{{key}}.mod)d10" data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
             </div>
             {{/each}}
           </div>

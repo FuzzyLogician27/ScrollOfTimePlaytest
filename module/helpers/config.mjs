@@ -10,7 +10,10 @@ export const SOTP = {};
   "con": "SOTP.AbilityCon",
   "int": "SOTP.AbilityInt",
   "wis": "SOTP.AbilityWis",
-  "cha": "SOTP.AbilityCha"
+  "awr": "SOTP.AbilityAwr",
+  "cha": "SOTP.AbilityCha",
+  "per": "SOTP.AbilityPer",
+  "ins": "SOTP.AbilityIns"
 };
 
 SOTP.abilityAbbreviations = {
@@ -19,5 +22,8 @@ SOTP.abilityAbbreviations = {
   "con": "SOTP.AbilityConAbbr",
   "int": "SOTP.AbilityIntAbbr",
   "wis": "SOTP.AbilityWisAbbr",
-  "cha": "SOTP.AbilityChaAbbr"
+  "awr": "SOTP.AbilityAwrAbbr",
+  "cha": "SOTP.AbilityChaAbbr",
+  "per": "SOTP.AbilityPerAbbr",
+  "ins": "SOTP.AbilityInsAbbr"
 };

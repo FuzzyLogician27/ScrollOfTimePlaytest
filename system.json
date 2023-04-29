@@ -5,7 +5,7 @@
   "version": "1.2.0",
   "compatibility": {
     "minimum": 10,
-    "verified": "10.287",
+    "verified": "10.291",
     "maximum": 10
   },
   "authors": [{
@@ -22,9 +22,9 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
+  "gridDistance": 0.5,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "speed",
   "secondaryTokenAttribute": "power",
   "url": "",
   "manifest": "",
