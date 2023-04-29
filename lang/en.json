@@ -1,0 +1,22 @@
+{
+  "SOTP.AbilityStr": "Strength",
+  "SOTP.AbilityCon": "Constitution",
+  "SOTP.AbilityDex": "Dexterity",
+  "SOTP.AbilityInt": "Intelligence",
+  "SOTP.AbilityWis": "Wisdom",
+  "SOTP.AbilityCha": "Charisma",
+
+  "SOTP.AbilityStrAbbr": "str",
+  "SOTP.AbilityConAbbr": "con",
+  "SOTP.AbilityDexAbbr": "dex",
+  "SOTP.AbilityIntAbbr": "int",
+  "SOTP.AbilityWisAbbr": "wis",
+  "SOTP.AbilityChaAbbr": "cha",
+
+  "SOTP.EffectCreate": "Create Effect",
+  "SOTP.EffectToggle": "Toggle Effect",
+  "SOTP.EffectEdit": "Edit Effect",
+  "SOTP.EffectDelete": "Delete Effect",
+
+  "SOTP.Add": "Add"
+}
