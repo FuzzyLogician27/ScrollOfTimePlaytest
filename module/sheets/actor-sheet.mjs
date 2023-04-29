@@ -84,7 +84,7 @@ export class SoTPActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
-    const spells = {
+    const wounds = {
       0: [],
       1: [],
       2: [],
@@ -108,10 +108,10 @@ export class SoTPActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
+      // Append to wounds.
+      else if (i.type === 'wound') {
+        if (i.system.woundLevel != undefined) {
+          wounds[i.system.woundLevel].push(i);
         }
       }
     }
@@ -119,7 +119,7 @@ export class SoTPActorSheet extends ActorSheet {
     // Assign and return
     context.gear = gear;
     context.features = features;
-    context.spells = spells;
+    context.wounds = wounds;
   }
 
   /* -------------------------------------------- */

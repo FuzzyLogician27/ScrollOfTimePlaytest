@@ -59,7 +59,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["item", "feature", "wound"],
     "templates": {
       "base": {
         "description": ""
@@ -74,9 +74,9 @@
     "feature": {
       "templates": ["base"]
     },
-    "spell": {
+    "wound": {
       "templates": ["base"],
-      "spellLevel": 1
+      "woundLevel": 1
     }
   }
 }
