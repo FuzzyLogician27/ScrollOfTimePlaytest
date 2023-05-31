@@ -11,5 +11,6 @@
     "systems/sotp/templates/actor/parts/actor-items.html",
     "systems/sotp/templates/actor/parts/actor-wounds.html",
     "systems/sotp/templates/actor/parts/actor-effects.html",
+    "systems/sotp/templates/actor/parts/actor-skills.html",
   ]);
 };

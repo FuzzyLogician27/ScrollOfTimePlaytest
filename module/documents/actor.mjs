@@ -49,10 +49,25 @@ export class SoTPActor extends Actor {
     const systemData = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
+    for (let [key, attribute] of Object.entries(systemData.attributes)) {
       // Calculate the modifier using d10 rules.
-      ability.mod = Math.round((ability.value / 10));
+      attribute.mod = Math.round((attribute.value / 10));
     }
+
+    for (let [key, skill] of Object.entries(systemData.skills)) {
+      if(skill.rank < 0){
+        skill.rank = 0;
+      }
+      if(skill.rank > 9){
+        skill.rank = 9;
+      }
+      if(skill.rank === 0){
+        skill.value = skill.untrainedvalue;
+      } else {
+        skill.value = skill.rank * 2;
+      }
+    }
+
   }
 
   /**
@@ -87,16 +102,21 @@ export class SoTPActor extends Actor {
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (data.abilities) {
-      for (let [k, v] of Object.entries(data.abilities)) {
+    if (data.attributes) {
+      for (let [k, v] of Object.entries(data.attributes)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
+    if (data.skills) {
+      for (let [k, v] of Object.entries(data.skills)) {
         data[k] = foundry.utils.deepClone(v);
       }
     }
 
     // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
-    }
+    //if (data.attributes.level) {
+    //  data.lvl = data.attributes.level.value ?? 0;
+    //}
   }
 
   /**

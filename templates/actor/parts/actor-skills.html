@@ -1,0 +1,23 @@
+<ol class="items-list">
+    {{#each system.skills as |skill key|}}
+    <li class="item flexrow items-header">
+        <div class = "item-name">{{skill.label}}</div>
+        <input type="text" name="system.skills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/>
+        <div class = "skill-mod rollable" data-roll="@skills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
+    </li>
+    <h4>
+        <div class = "expertise rollable" data-roll = "@skills.{{key}}.value + floor(@skills.{{key}}.rank / 3)" data-label="{{skill.label}}">{{numberFormat skill.rank decimals=0 sign=true}}</div>
+        <input type="text" name="system.skills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
+    </h4>
+    <h4>
+        <div class = "expertise rollable" data-roll = "@skills.{{key}}.value + (2 * floor(floor(@skills.{{key}}.rank / 3) / 3))" data-label="{{skill.label}}">{{numberFormat skill.rank decimals=0 sign=true}}</div>
+        <input type="text" name="system.skills.{{key}}.expertise2" value="{{skill.expertise2}}"/>
+    </h4>
+    <h4>
+        <div class = "expertise rollable" data-roll = "@skills.{{key}}.value + floor(@skills.{{key}}.rank / 9)" data-label="{{skill.label}}">{{numberFormat skill.rank decimals=0 sign=true}}</div>
+        <input type="text" name="system.skills.{{key}}.expertise3" value="{{skill.expertise3}}"/>
+    </h4>
+
+    
+    {{/each}}
+</ol>

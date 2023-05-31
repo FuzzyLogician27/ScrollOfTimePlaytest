@@ -67,9 +67,9 @@ export class SoTPActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
-    // Handle ability scores.
-    for (let [k, v] of Object.entries(context.system.abilities)) {
-      v.label = game.i18n.localize(CONFIG.SOTP.abilities[k]) ?? k;
+    // Handle attribute scores.
+    for (let [k, v] of Object.entries(context.system.attributes)) {
+      v.label = game.i18n.localize(CONFIG.SOTP.attributes[k]) ?? k;
     }
   }
 
@@ -90,11 +90,7 @@ export class SoTPActorSheet extends ActorSheet {
       2: [],
       3: [],
       4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
+      5: []
     };
 
     // Iterate through items, allocating to containers
@@ -215,7 +211,7 @@ export class SoTPActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : '';
+      let label = dataset.label ? `[attribute] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

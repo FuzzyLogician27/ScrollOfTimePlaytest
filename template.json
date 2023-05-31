@@ -8,22 +8,13 @@
           "min": 0,
           "max": 5
         },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        },
         "biography": ""
       }
     },
     "character": {
       "templates": ["base"],
       "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
+
         "str": {
           "value": 50
         },
@@ -50,6 +41,113 @@
         },
         "ins": {
           "value": 50
+        }
+        
+      },
+      "skills": {
+        "bow": {
+          "rank": 0,
+          "label": "Bows",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "crossbow": {
+          "rank": 0,
+          "label": "Crossbows",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "firearm": {
+          "rank": 0,
+          "label": "Firearms",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "multiweapon": {
+          "rank": 0,
+          "label": "Multiweapon Fighting",
+          "untrainedvalue": -9,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "onehandblunt": {
+          "rank": 0,
+          "label": "One-Handed Blunt",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "onehandpierce": {
+          "rank": 0,
+          "label": "One-Handed Piercing",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "onehandslash": {
+          "rank": 0,
+          "label": "One-Handed Slashing",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "shields": {
+          "rank": 0,
+          "label": "Shields",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "thrownweapon": {
+          "rank": 0,
+          "label": "Thrown Weaponry",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "twohandblunt": {
+          "rank": 0,
+          "label": "Two-Handed Blunt",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "twohandpierce": {
+          "rank": 0,
+          "label": "Two-Handed Piercing",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "twohandslash": {
+          "rank": 0,
+          "label": "Two-Handed Slashing",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "unarmed": {
+          "rank": 0,
+          "label": "Unarmed",
+          "untrainedvalue": 0,
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
         }
       }
     },
