@@ -66,6 +66,9 @@ export class SoTPActor extends Actor {
       } else {
         skill.value = skill.rank * 2;
       }
+      skill.expval1 = Math.floor(skill.rank / 3);
+      skill.expval2 = Math.floor(Math.floor(skill.rank / 3) * (2 / 3));
+      skill.expval3 = Math.floor(skill.rank / 9);
     }
 
   }
