@@ -59,6 +59,8 @@ export class SoTPActor extends Actor {
     this.setupSkills(systemData.generalskills);
     this.setupSkills(systemData.specialistskills);
 
+    this.setConsumableAttributes(actorData);
+
     this.setDerivedAttributes(actorData);
 
   }
@@ -140,10 +142,10 @@ export class SoTPActor extends Actor {
     }
   }
 
-  setDerivedAttributes(actorData) {
+  setConsumableAttributes(actorData) {
     const attrData = actorData.system.attributes;
     const consData = actorData.system.consumableattributes;
-    consData.stamina.baseval = Math.ceil((attrData.str.value + attrData.dex.value + attrData.con.value) / 5);
+    consData.stamina.baseval = Math.round((attrData.str.value + attrData.dex.value + attrData.con.value) / 5);
     consData.stamina.max = consData.stamina.baseval + consData.stamina.ancestryval;
     if(consData.stamina.value > consData.stamina.max) {
       consData.stamina.value = consData.stamina.max;
@@ -152,7 +154,7 @@ export class SoTPActor extends Actor {
       consData.stamina.value = 0;
     }
 
-    consData.willpower.baseval = Math.ceil((attrData.int.value + attrData.wis.value + attrData.awr.value) / 5);
+    consData.willpower.baseval = Math.round((attrData.int.value + attrData.wis.value + attrData.awr.value) / 5);
     consData.willpower.max = consData.willpower.baseval + consData.willpower.ancestryval;
     if(consData.willpower.value > consData.willpower.max) {
       consData.willpower.value = consData.willpower.max;
@@ -161,13 +163,32 @@ export class SoTPActor extends Actor {
       consData.willpower.value = 0;
     }
 
-    consData.morale.baseval = Math.ceil((attrData.cha.value + attrData.per.value + attrData.ins.value) / 5);
+    consData.morale.baseval = Math.round((attrData.cha.value + attrData.per.value + attrData.ins.value) / 5);
     consData.morale.max = consData.morale.baseval + consData.morale.ancestryval;
     if(consData.morale.value > consData.morale.max) {
       consData.morale.value = consData.morale.max;
     }
     if(consData.morale.value < 0) {
       consData.morale.value = 0;
+    }
+  }
+
+  setDerivedAttributes(actorData) {
+    const attrData = actorData.system.attributes;
+    const derivedData = actorData.system.derivedattributes;
+
+    derivedData.dodge.value = Math.round(((2 * attrData.dex.value) + attrData.awr.value) / 3) + 10 - derivedData.dodge.sizebonus - derivedData.dodge.bulkpenalty;
+    derivedData.dodge.mod = Math.round((derivedData.dodge.value / 10));
+    derivedData.control.value = Math.round(((2 * attrData.str.value) + attrData.dex.value) / 3) + derivedData.control.sizebonus;
+    derivedData.control.mod = Math.round((derivedData.control.value / 10));
+    derivedData.toughness.value = Math.round((attrData.con.value - 50) / 5) + derivedData.toughness.ancestryval + derivedData.toughness.sizebonus;
+    derivedData.bulkincrement.value = Math.round(attrData.str.value / 5) + derivedData.bulkincrement.ancestryval;
+    derivedData.poise.max = Math.round((3 * derivedData.control.value) / 10);
+    if(derivedData.poise.value > derivedData.poise.max) {
+      derivedData.poise.value = derivedData.poise.max;
+    }
+    if(derivedData.poise.value < 0) {
+      derivedData.poise.value = 0;
     }
   }
 

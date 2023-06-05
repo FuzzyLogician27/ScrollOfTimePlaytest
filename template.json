@@ -65,18 +65,43 @@
       "consumableattributes": {
         "stamina": {
           "ancestryval": 0,
-          "value": 15,
-          "max": 15
+          "value": 50,
+          "max": 30
         },
         "willpower": {
           "ancestryval": 0,
-          "value": 15,
-          "max": 15
+          "value": 50,
+          "max": 30
         },
         "morale": {
           "ancestryval": 0,
-          "value": 15,
-          "max": 15
+          "value": 50,
+          "max": 30
+        }
+      },
+      "derivedattributes": {
+        "dodge": {
+          "sizebonus": 0,
+          "bulkpenalty": 0,
+          "value": 0
+        },
+        "control": {
+          "sizebonus": 0,
+          "bulkpenalty": 0,
+          "value": 0
+        },
+        "toughness": {
+          "ancestryval": 0,
+          "sizebonus": 0,
+          "value": 0
+        },
+        "poise": {
+          "value": 0,
+          "max": 0
+        },
+        "bulkincrement": {
+          "ancestryval": 0,
+          "value": 0
         }
       },
       "combatskills": {
