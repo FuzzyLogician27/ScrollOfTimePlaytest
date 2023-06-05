@@ -16,39 +16,75 @@
       "attributes": {
 
         "str": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "dex": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "con": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "int": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "wis": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "awr" : {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "cha": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "per": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         },
         "ins": {
+          "ancestryval": 0,
+          "baseval": 50,
           "value": 50
         }
         
       },
-      "skills": {
+      "consumableattributes": {
+        "stamina": {
+          "ancestryval": 0,
+          "value": 15,
+          "max": 15
+        },
+        "willpower": {
+          "ancestryval": 0,
+          "value": 15,
+          "max": 15
+        },
+        "morale": {
+          "ancestryval": 0,
+          "value": 15,
+          "max": 15
+        }
+      },
+      "combatskills": {
         "bow": {
           "rank": 0,
           "label": "Bows",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -57,6 +93,7 @@
           "rank": 0,
           "label": "Crossbows",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -65,6 +102,7 @@
           "rank": 0,
           "label": "Firearms",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -73,6 +111,7 @@
           "rank": 0,
           "label": "Multiweapon Fighting",
           "untrainedvalue": -9,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -81,6 +120,7 @@
           "rank": 0,
           "label": "One-Handed Blunt",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -89,6 +129,7 @@
           "rank": 0,
           "label": "One-Handed Piercing",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -97,6 +138,7 @@
           "rank": 0,
           "label": "One-Handed Slashing",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -105,6 +147,7 @@
           "rank": 0,
           "label": "Shields",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -113,6 +156,7 @@
           "rank": 0,
           "label": "Thrown Weaponry",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -121,6 +165,7 @@
           "rank": 0,
           "label": "Two-Handed Blunt",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -129,6 +174,7 @@
           "rank": 0,
           "label": "Two-Handed Piercing",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -137,6 +183,7 @@
           "rank": 0,
           "label": "Two-Handed Slashing",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
@@ -145,11 +192,235 @@
           "rank": 0,
           "label": "Unarmed",
           "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        }
+      },
+      "magicskills": {
+        "alteration": {
+          "rank": 0,
+          "label": "Alteration",
+          "untrainedvalue": -20,
+          "selectedattribute": "int",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "conjuration": {
+          "rank": 0,
+          "label": "Conjuration",
+          "untrainedvalue": -20,
+          "selectedattribute": "int",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "thaumaturgy": {
+          "rank": 0,
+          "label": "Thaumaturgy",
+          "untrainedvalue": -20,
+          "selectedattribute": "int",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        }
+      },
+      "generalskills" : {
+        "athletics": {
+          "rank": 0,
+          "label": "Athletics",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "cookery": {
+          "rank": 0,
+          "label": "Cookery",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "discourse": {
+          "rank": 0,
+          "label": "Discourse",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "investigation": {
+          "rank": 0,
+          "label": "Investigation",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "knowculture": {
+          "rank": 0,
+          "label": "Knowledge: Culture",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "knowgeography": {
+          "rank": 0,
+          "label": "Knowledge: Geography",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "performdrama": {
+          "rank": 0,
+          "label": "Perform: Drama",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "stealth": {
+          "rank": 0,
+          "label": "Stealth",
+          "untrainedvalue": 0,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        }
+      },
+      "specialistskills": {
+        "engineering": {
+          "rank": 0,
+          "label": "Engineering",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "knowarcana": {
+          "rank": 0,
+          "label": "Knowledge: Arcana",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "knowhistory": {
+          "rank": 0,
+          "label": "Knowledge: History",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "knowreligion": {
+          "rank": 0,
+          "label": "Knowledge: Religion",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "knowscience": {
+          "rank": 0,
+          "label": "Knowledge: Science",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "Medicine": {
+          "rank": 0,
+          "label": "Engineering",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "performart": {
+          "rank": 0,
+          "label": "Perform: Art",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "security": {
+          "rank": 0,
+          "label": "Security",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "survival": {
+          "rank": 0,
+          "label": "Survival",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "travelair": {
+          "rank": 0,
+          "label": "Travel: Air",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "travelland": {
+          "rank": 0,
+          "label": "Travel: Land",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "travelwater": {
+          "rank": 0,
+          "label": "Travel: Water",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
+          "expertise1": "",
+          "expertise2": "",
+          "expertise3": ""
+        },
+        "trickery": {
+          "rank": 0,
+          "label": "Trickery",
+          "untrainedvalue": -10,
+          "selectedattribute": "str",
           "expertise1": "",
           "expertise2": "",
           "expertise3": ""
         }
       }
+
     },
     "npc": {
       "templates": ["base"],

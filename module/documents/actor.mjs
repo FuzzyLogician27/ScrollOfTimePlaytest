@@ -54,22 +54,12 @@ export class SoTPActor extends Actor {
       attribute.mod = Math.round((attribute.value / 10));
     }
 
-    for (let [key, skill] of Object.entries(systemData.skills)) {
-      if(skill.rank < 0){
-        skill.rank = 0;
-      }
-      if(skill.rank > 9){
-        skill.rank = 9;
-      }
-      if(skill.rank === 0){
-        skill.value = skill.untrainedvalue;
-      } else {
-        skill.value = skill.rank * 2;
-      }
-      skill.expval1 = Math.floor(skill.rank / 3);
-      skill.expval2 = Math.floor(Math.floor(skill.rank / 3) * (2 / 3));
-      skill.expval3 = Math.floor(skill.rank / 9);
-    }
+    this.setupSkills(systemData.combatskills);
+    this.setupSkills(systemData.magicskills);
+    this.setupSkills(systemData.generalskills);
+    this.setupSkills(systemData.specialistskills);
+
+    this.setDerivedAttributes(actorData);
 
   }
 
@@ -129,6 +119,56 @@ export class SoTPActor extends Actor {
     if (this.type !== 'npc') return;
 
     // Process additional NPC data here.
+  }
+
+  setupSkills(skilltype) {
+    for (let [key, skill] of Object.entries(skilltype)) {
+      if(skill.rank < 0){
+        skill.rank = 0;
+      }
+      if(skill.rank > 9){
+        skill.rank = 9;
+      }
+      if(skill.rank === 0){
+        skill.value = skill.untrainedvalue;
+      } else {
+        skill.value = skill.rank * 2;
+      }
+      skill.expval1 = Math.floor(skill.rank / 3);
+      skill.expval2 = Math.floor(Math.floor(skill.rank / 3) * (2 / 3));
+      skill.expval3 = Math.floor(skill.rank / 9);
+    }
+  }
+
+  setDerivedAttributes(actorData) {
+    const attrData = actorData.system.attributes;
+    const consData = actorData.system.consumableattributes;
+    consData.stamina.baseval = Math.ceil((attrData.str.value + attrData.dex.value + attrData.con.value) / 5);
+    consData.stamina.max = consData.stamina.baseval + consData.stamina.ancestryval;
+    if(consData.stamina.value > consData.stamina.max) {
+      consData.stamina.value = consData.stamina.max;
+    }
+    if(consData.stamina.value < 0) {
+      consData.stamina.value = 0;
+    }
+
+    consData.willpower.baseval = Math.ceil((attrData.int.value + attrData.wis.value + attrData.awr.value) / 5);
+    consData.willpower.max = consData.willpower.baseval + consData.willpower.ancestryval;
+    if(consData.willpower.value > consData.willpower.max) {
+      consData.willpower.value = consData.willpower.max;
+    }
+    if(consData.willpower.value < 0) {
+      consData.willpower.value = 0;
+    }
+
+    consData.morale.baseval = Math.ceil((attrData.cha.value + attrData.per.value + attrData.ins.value) / 5);
+    consData.morale.max = consData.morale.baseval + consData.morale.ancestryval;
+    if(consData.morale.value > consData.morale.max) {
+      consData.morale.value = consData.morale.max;
+    }
+    if(consData.morale.value < 0) {
+      consData.morale.value = 0;
+    }
   }
 
 }

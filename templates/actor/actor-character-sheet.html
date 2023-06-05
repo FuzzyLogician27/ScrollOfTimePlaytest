@@ -14,6 +14,31 @@
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
         <div class="resource flex-group-center">
+          <label for="system.consumableattributes.stamina.value" class="resource-label">Stamina</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.consumableattributes.stamina.value" value="{{system.consumableattributes.stamina.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="system.consumableattributes.stamina.max" value="{{system.consumableattributes.stamina.max}}"  readonly data-dtype="Number"/>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.consumableattributes.willpower.value" class="resource-label">Willpower</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.consumableattributes.willpower.value" value="{{system.consumableattributes.willpower.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="system.consumableattributes.willpower.max" value="{{system.consumableattributes.willpower.max}}"  readonly data-dtype="Number"/>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.consumableattributes.morale.value" class="resource-label">Morale</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.consumableattributes.morale.value" value="{{system.consumableattributes.morale.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="system.consumableattributes.morale.max" value="{{system.consumableattributes.morale.max}}"  readonly data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
           <label for="system.speed.value" class="resource-label">Speed</label>
           <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number"/>
@@ -21,16 +46,6 @@
           <input type="text" name="system.speed.max" value="{{system.speed.max}}" data-dtype="Number"/>
           </div>
         </div>
-
-        <div class="resource flex-group-center">
-          <label for="system.power.value" class="resource-label">Power</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.power.value" value="{{system.power.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="system.power.max" value="{{system.power.max}}" data-dtype="Number"/>
-          </div>
-        </div>
-
 
       </div>
     </div>

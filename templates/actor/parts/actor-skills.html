@@ -1,23 +1,158 @@
 <ol class="items-list">
-    {{#each system.skills as |skill key|}}
-    <li class="item flexrow items-header">
-        <div class = "item-name">{{skill.label}}</div>
-        <input type="text" name="system.skills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/>
-        <div class = "skill-mod rollable" data-roll="@skills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
-    </li>
-    <h4>
-        <div class = "expertise rollable" data-roll = "@skills.{{key}}.value + @skills.{{key}}.expval1" data-label="{{skill.label}}">{{numberFormat skill.expval1 decimals=0 sign=true}}</div>
-        <input type="text" name="system.skills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
-    </h4>
-    <h4>
-        <div class = "expertise rollable" data-roll = "@skills.{{key}}.value + @skills.{{key}}.expval2" data-label="{{skill.label}}">{{numberFormat skill.expval2 decimals=0 sign=true}}</div>
-        <input type="text" name="system.skills.{{key}}.expertise2" value="{{skill.expertise2}}"/>
-    </h4>
-    <h4>
-        <div class = "expertise rollable" data-roll = "@skills.{{key}}.value + @skills.{{key}}.expval3" data-label="{{skill.label}}">{{numberFormat skill.expval3 decimals=0 sign=true}}</div>
-        <input type="text" name="system.skills.{{key}}.expertise3" value="{{skill.expertise3}}"/>
-    </h4>
-
-    
+    <details>
+        <summary>
+            <li class="item flexrow items-header">Combat Skills</li>
+        </summary>
+        {{#each system.combatskills as |skill key|}}
+        <details>
+        <summary><li class="item flexrow items-header">
+            <div class = "item-name">{{skill.label}}</div>
+            <input type="text" name="system.combatskills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/>
+            <div class = "skill-mod rollable" data-roll="(@attributes.{{skill.selectedattribute}}.mod)d10 + @skills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
+            <select class = "selector" skill = "skill" name = "system.combatskills.{{key}}.selectedattribute" id="{{skill.label}}-selector">
+                {{#select skill.selectedattribute}}
+                    <option value="str">Strength</option>
+                    <option value="dex">Dexterity</option>
+                    <option value="con">Constitution</option>
+                    <option value="int">Intelligence</option>
+                    <option value="wis">Wisdom</option>
+                    <option value="awr">Awareness</option>
+                    <option value="cha">Charisma</option>
+                    <option value="per">Persuasion</option>
+                    <option value="ins">Insight</option>
+                {{/select}}
+            </select>
+        </li></summary>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @combatskills.{{key}}.value + @combatskills.{{key}}.expval1" data-label="{{skill.label}}">{{numberFormat skill.expval1 decimals=0 sign=true}}</div>
+            <input type="text" name="system.skills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @combatskills.{{key}}.value + @combatskills.{{key}}.expval2" data-label="{{skill.label}}">{{numberFormat skill.expval2 decimals=0 sign=true}}</div>
+            <input type="text" name="system.combatskills.{{key}}.expertise2" value="{{skill.expertise2}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @combatskills.{{key}}.value + @combatskills.{{key}}.expval3" data-label="{{skill.label}}">{{numberFormat skill.expval3 decimals=0 sign=true}}</div>
+            <input type="text" name="system.combatskills.{{key}}.expertise3" value="{{skill.expertise3}}"/>
+        </h4>
+        </details>
     {{/each}}
+    </details>
+    <details>
+        <summary>
+            <li class="item flexrow items-header">Magic Skills</li>
+        </summary>
+        {{#each system.magicskills as |skill key|}}
+        <details>
+        <summary><li class="item flexrow items-header">
+            <div class = "item-name">{{skill.label}}</div>
+            <input type="text" name="system.magicskills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/>
+            <div class = "skill-mod rollable" data-roll="(@attributes.{{skill.selectedattribute}}.mod)d10 + @magicskills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
+            <select class = "selector" skill = "skill" name = "system.magicskills.{{key}}.selectedattribute" id="{{skill.label}}-selector">
+                {{#select skill.selectedattribute}}
+                    <option value="str">Strength</option>
+                    <option value="dex">Dexterity</option>
+                    <option value="con">Constitution</option>
+                    <option value="int">Intelligence</option>
+                    <option value="wis">Wisdom</option>
+                    <option value="awr">Awareness</option>
+                    <option value="cha">Charisma</option>
+                    <option value="per">Persuasion</option>
+                    <option value="ins">Insight</option>
+                {{/select}}
+            </select>
+        </li></summary>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @magicskills.{{key}}.value + @magicskills.{{key}}.expval1" data-label="{{skill.label}}">{{numberFormat skill.expval1 decimals=0 sign=true}}</div>
+            <input type="text" name="system.magicskills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @magicskills.{{key}}.value + @magicskills.{{key}}.expval2" data-label="{{skill.label}}">{{numberFormat skill.expval2 decimals=0 sign=true}}</div>
+            <input type="text" name="system.magicskills.{{key}}.expertise2" value="{{skill.expertise2}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @magicskills.{{key}}.value + @magicskills.{{key}}.expval3" data-label="{{skill.label}}">{{numberFormat skill.expval3 decimals=0 sign=true}}</div>
+            <input type="text" name="system.magicskills.{{key}}.expertise3" value="{{skill.expertise3}}"/>
+        </h4>
+        </details>
+    {{/each}}
+    </details>
+    <details>
+        <summary>
+            <li class="item flexrow items-header">General Skills</li>
+        </summary>
+        {{#each system.generalskills as |skill key|}}
+        <details>
+        <summary><li class="item flexrow items-header">
+            <div class = "item-name">{{skill.label}}</div>
+            <input type="text" name="system.generalskills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/>
+            <div class = "skill-mod rollable" data-roll="(@attributes.{{skill.selectedattribute}}.mod)d10 + @generalskills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
+            <select class = "selector" skill = "skill" name = "system.generalskills.{{key}}.selectedattribute" id="{{skill.label}}-selector">
+                {{#select skill.selectedattribute}}
+                    <option value="str">Strength</option>
+                    <option value="dex">Dexterity</option>
+                    <option value="con">Constitution</option>
+                    <option value="int">Intelligence</option>
+                    <option value="wis">Wisdom</option>
+                    <option value="awr">Awareness</option>
+                    <option value="cha">Charisma</option>
+                    <option value="per">Persuasion</option>
+                    <option value="ins">Insight</option>
+                {{/select}}
+            </select>
+        </li></summary>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @generalskills.{{key}}.value + @generalskills.{{key}}.expval1" data-label="{{skill.label}}">{{numberFormat skill.expval1 decimals=0 sign=true}}</div>
+            <input type="text" name="system.generalskills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @generalskills.{{key}}.value + @generalskills.{{key}}.expval2" data-label="{{skill.label}}">{{numberFormat skill.expval2 decimals=0 sign=true}}</div>
+            <input type="text" name="system.generalskills.{{key}}.expertise2" value="{{skill.expertise2}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @generalskills.{{key}}.value + @generalskills.{{key}}.expval3" data-label="{{skill.label}}">{{numberFormat skill.expval3 decimals=0 sign=true}}</div>
+            <input type="text" name="system.generalskills.{{key}}.expertise3" value="{{skill.expertise3}}"/>
+        </h4>
+        </details>
+    {{/each}}
+    </details>
+    <details>
+        <summary>
+            <li class="item flexrow items-header">Specialist Skills</li>
+        </summary>
+        {{#each system.specialistskills as |skill key|}}
+        <details>
+        <summary><li class="item flexrow items-header">
+            <div class = "item-name">{{skill.label}}</div>
+            <input type="text" name="system.specialistskills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/>
+            <div class = "skill-mod rollable" data-roll="(@attributes.{{skill.selectedattribute}}.mod)d10 + @specialistskills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
+            <select class = "selector" skill = "skill" name = "system.specialistskills.{{key}}.selectedattribute" id="{{skill.label}}-selector">
+                {{#select skill.selectedattribute}}
+                    <option value="str">Strength</option>
+                    <option value="dex">Dexterity</option>
+                    <option value="con">Constitution</option>
+                    <option value="int">Intelligence</option>
+                    <option value="wis">Wisdom</option>
+                    <option value="awr">Awareness</option>
+                    <option value="cha">Charisma</option>
+                    <option value="per">Persuasion</option>
+                    <option value="ins">Insight</option>
+                {{/select}}
+            </select>
+        </li></summary>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @specialistskills.{{key}}.value + @specialistskills.{{key}}.expval1" data-label="{{skill.label}}">{{numberFormat skill.expval1 decimals=0 sign=true}}</div>
+            <input type="text" name="system.specialistskills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @specialistskills.{{key}}.value + @specialistskills.{{key}}.expval2" data-label="{{skill.label}}">{{numberFormat skill.expval2 decimals=0 sign=true}}</div>
+            <input type="text" name="system.specialistskills.{{key}}.expertise2" value="{{skill.expertise2}}"/>
+        </h4>
+        <h4>
+            <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @specialistskills.{{key}}.value + @specialistskills.{{key}}.expval3" data-label="{{skill.label}}">{{numberFormat skill.expval3 decimals=0 sign=true}}</div>
+            <input type="text" name="system.specialistskills.{{key}}.expertise3" value="{{skill.expertise3}}"/>
+        </h4>
+        </details>
+    {{/each}}
+    </details>
 </ol>

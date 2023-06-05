@@ -146,6 +146,8 @@ export class SoTPActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
+    html.find(".selector").change(this._onSelect.bind(this));
+
     // Active Effect management
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 
@@ -220,6 +222,15 @@ export class SoTPActorSheet extends ActorSheet {
       });
       return roll;
     }
+  }
+
+  _onSelect(event) {
+    event.preventDefault();
+    //const element = event.currentTarget;
+    //var index = element.selectedIndex;
+    //var val = element.value;
+    //var skillpath = element.name;
+    //console.log(val);
   }
 
 }
