@@ -62,7 +62,6 @@ export class SoTPActor extends Actor {
     this.setConsumableAttributes(actorData);
 
     this.setDerivedAttributes(actorData);
-
   }
 
   /**
