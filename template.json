@@ -93,17 +93,20 @@
       "consumableattributes": {
         "stamina": {
           "ancestryval": 0,
-          "value": 50,
+          "value": 60,
+          "cap": 60,
           "max": 30
         },
         "willpower": {
           "ancestryval": 0,
-          "value": 50,
+          "value": 60,
+          "cap": 60,
           "max": 30
         },
         "morale": {
           "ancestryval": 0,
-          "value": 50,
+          "value": 60,
+          "cap": 60,
           "max": 30
         }
       },

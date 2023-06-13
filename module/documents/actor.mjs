@@ -59,7 +59,11 @@ export class SoTPActor extends Actor {
     this.setupSkills(systemData.generalskills);
     this.setupSkills(systemData.specialistskills);
 
-    this.setConsumableAttributes(actorData);
+    const attrData = actorData.system.attributes;
+
+    this.setConsumableAttributes([attrData.str, attrData.dex, attrData.con], actorData.system.consumableattributes.stamina);
+    this.setConsumableAttributes([attrData.int, attrData.wis, attrData.awr], actorData.system.consumableattributes.willpower);
+    this.setConsumableAttributes([attrData.cha, attrData.per, attrData.ins], actorData.system.consumableattributes.morale);
 
     this.setDerivedAttributes(actorData);
   }
@@ -141,34 +145,20 @@ export class SoTPActor extends Actor {
     }
   }
 
-  setConsumableAttributes(actorData) {
-    const attrData = actorData.system.attributes;
-    const consData = actorData.system.consumableattributes;
-    consData.stamina.baseval = Math.round((attrData.str.value + attrData.dex.value + attrData.con.value) / 5);
-    consData.stamina.max = consData.stamina.baseval + consData.stamina.ancestryval;
-    if(consData.stamina.value > consData.stamina.max) {
-      consData.stamina.value = consData.stamina.max;
+  setConsumableAttributes(attrData, consumable) {
+    consumable.baseval = Math.round((attrData[0].value + attrData[1].value + attrData[2].value) / 5);
+    consumable.max = consumable.baseval + consumable.ancestryval;
+    if(consumable.value >= consumable.cap) {
+      consumable.value = consumable.cap;
     }
-    if(consData.stamina.value < 0) {
-      consData.stamina.value = 0;
+    if(consumable.value < 0) {
+      consumable.value = 0;
     }
-
-    consData.willpower.baseval = Math.round((attrData.int.value + attrData.wis.value + attrData.awr.value) / 5);
-    consData.willpower.max = consData.willpower.baseval + consData.willpower.ancestryval;
-    if(consData.willpower.value > consData.willpower.max) {
-      consData.willpower.value = consData.willpower.max;
+    if(consumable.cap - consumable.value > (consumable.max / 5)){
+      consumable.cap = consumable.value + (consumable.max / 5);
     }
-    if(consData.willpower.value < 0) {
-      consData.willpower.value = 0;
-    }
-
-    consData.morale.baseval = Math.round((attrData.cha.value + attrData.per.value + attrData.ins.value) / 5);
-    consData.morale.max = consData.morale.baseval + consData.morale.ancestryval;
-    if(consData.morale.value > consData.morale.max) {
-      consData.morale.value = consData.morale.max;
-    }
-    if(consData.morale.value < 0) {
-      consData.morale.value = 0;
+    if(consumable.cap >= consumable.max){
+      consumable.cap = consumable.max;
     }
   }
 
