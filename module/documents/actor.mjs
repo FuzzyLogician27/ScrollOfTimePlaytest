@@ -1,3 +1,5 @@
+
+//import fetch from 'node-fetch';
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -47,6 +49,13 @@ export class SoTPActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
+
+    for(let [k, attribute] of Object.entries(systemData.attributes)) {
+      attribute.value = attribute.baseval + attribute.ancestryval;
+    }
+
+    
+    console.log(document.getElementById("9"));
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, attribute] of Object.entries(systemData.attributes)) {
@@ -110,7 +119,6 @@ export class SoTPActor extends Actor {
         data[k] = foundry.utils.deepClone(v);
       }
     }
-
     // Add level for easier access, or fall back to 0.
     //if (data.attributes.level) {
     //  data.lvl = data.attributes.level.value ?? 0;
@@ -180,5 +188,4 @@ export class SoTPActor extends Actor {
       derivedData.poise.value = 0;
     }
   }
-
 }

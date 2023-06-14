@@ -14,7 +14,25 @@
   "esmodules": ["module/sotp.mjs"],
   "styles": ["css/sotp.css"],
   "scripts": [],
-  "packs": [],
+  "packs": [{
+    "name": "ancestries",
+    "label": "Ancestries",
+    "system": "SoTP",
+    "path": "packs/ancestries.db",
+    "type": "Item",
+    "private": false,
+    "flags":{}
+  },
+  {
+    "name": "equipment",
+    "label": "Equipment",
+    "system": "SoTP",
+    "path": "packs/equipment.db",
+    "type": "Item",
+    "private": false,
+    "flags":{}
+  }
+  ],
   "languages": [
     {
       "lang": "en",

@@ -44,46 +44,55 @@
       "attributes": {
 
         "str": {
+          "icon": "fa-hand-fist",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "dex": {
+          "icon": "fa-hand",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "con": {
+          "icon": "fa-heart",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "int": {
+          "icon": "fa-brain",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "wis": {
+          "icon": "fa-book",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "awr" : {
+          "icon": "fa-eye",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "cha": {
+          "icon": "fa-handshake-simple",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "per": {
+          "icon": "fa-comment",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
         },
         "ins": {
+          "icon": "fa-magnifying-glass",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
@@ -486,7 +495,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "wound"],
+    "types": ["item", "feature", "wound", "ancestry"],
     "templates": {
       "base": {
         "description": ""
@@ -504,6 +513,29 @@
     "wound": {
       "templates": ["base"],
       "woundLevel": 1
+    },
+    "ancestry": {
+      "size": 0,
+      "speed": 6,
+      "statchanges": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "awr": 0,
+        "cha": 0,
+        "pe": 0,
+        "ins": 0,
+        "stamina": 0,
+        "willpower": 0,
+        "morale": 0,
+        "dodge": 0,
+        "control": 0,
+        "toughness": 0,
+        "bulkincrement": 0
+    },
+    "traits": []
     }
   }
 }

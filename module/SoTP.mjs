@@ -30,7 +30,7 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "(@attributes.dex.mod)d10 + @skills.multiweapon.value",
+    formula: "(@attributes.dex.mod)d10",
     decimals: 2
   };
 
@@ -134,4 +134,6 @@ function rollItemMacro(itemUuid) {
     // Trigger the item roll
     item.roll();
   });
+
+  
 }

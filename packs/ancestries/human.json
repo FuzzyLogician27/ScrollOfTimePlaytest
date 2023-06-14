@@ -1,6 +1,8 @@
 {
-    "_id": 9,
+    "_id": "9",
+    "type": "ancestry",
     "name": "Human",
+    "description": "Test",
     "size": 0,
     "speed": 6,
     "statchanges": {
