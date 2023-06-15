@@ -8,7 +8,7 @@
         <summary><li class="item flexrow items-header">
             <div class = "item-name">{{skill.label}}</div>
             <input type="text" name="system.combatskills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/>
-            <div class = "skill-mod rollable" data-roll="(@attributes.{{skill.selectedattribute}}.mod)d10 + @skills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
+            <div class = "skill-mod rollable" data-roll="(@attributes.{{skill.selectedattribute}}.mod)d10 + @combatskills.{{key}}.value" data-label="{{skill.label}}">{{numberFormat skill.value decimals=0 sign=true}}</div>
             <select class = "selector" skill = "skill" name = "system.combatskills.{{key}}.selectedattribute" id="{{skill.label}}-selector">
                 {{#select skill.selectedattribute}}
                     <option value="str">Strength</option>

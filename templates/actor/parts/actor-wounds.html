@@ -1,24 +1,29 @@
 <ol class="items-list">
-  {{#each wounds as |wounds woundLevel|}}
-    <li class="item flexrow items-header">
-      <div class="item-name">Level {{woundLevel}} wounds</div>
-      <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="wound" data-wound-level="{{woundLevel}}"><i class="fas fa-plus"></i> Add LVL {{woundLevel}}</a>
-      </div>
-    </li>
-    {{#each wounds as |item id|}}
-      <li class="item flexrow" data-item-id="{{item._id}}">
-        <div class="item-name flexrow">
-          <div class="item-image">
-            <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
-          </div>
-          <h4>{{item.name}}</h4>
-        </div>
-        <div class="item-controls">
-          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-        </div>
-      </li>
-    {{/each}}
+  {{#each system.wounds as |wound key|}}
+  <li class="item flexrow items-header">{{wound.label}}</li>
+  <table>
+  <tr>
+    <th>Level 1</th>
+    <th>Level 2</th>
+    <th>Level 3</th>
+    <th>Level 4</th>
+    <th>Level 5</th>
+  </tr>
+  <tr>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds1.1st" {{checked wound.wounds1.1st}} value= "{{wound.wounds1.1st}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds2.1st" {{checked wound.wounds2.1st}} value= "{{wound.wounds2.1st}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds3.1st" {{checked wound.wounds3.1st}} value= "{{wound.wounds3.1st}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds4.1st" {{checked wound.wounds4.1st}} value= "{{wound.wounds4.1st}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds5.1st" {{checked wound.wounds5.1st}} value= "{{wound.wounds5.1st}}" data-dtype= "Boolean"/></td>
+  </tr>
+  <tr>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds1.2nd" {{checked wound.wounds1.2nd}} value= "{{wound.wounds1.2nd}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds2.2nd" {{checked wound.wounds2.2nd}} value= "{{wound.wounds2.2nd}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds3.2nd" {{checked wound.wounds3.2nd}} value= "{{wound.wounds3.2nd}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds4.2nd" {{checked wound.wounds4.2nd}} value= "{{wound.wounds4.2nd}}" data-dtype= "Boolean"/></td>
+    <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds5.2nd" {{checked wound.wounds5.2nd}} value= "{{wound.wounds5.2nd}}" data-dtype= "Boolean"/></td>
+  </tr>
+</table>
+    
   {{/each}}
 </ol>

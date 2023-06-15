@@ -54,9 +54,6 @@ export class SoTPActor extends Actor {
       attribute.value = attribute.baseval + attribute.ancestryval;
     }
 
-    
-    console.log(document.getElementById("9"));
-
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, attribute] of Object.entries(systemData.attributes)) {
       // Calculate the modifier using d10 rules.

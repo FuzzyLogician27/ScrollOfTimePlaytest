@@ -486,6 +486,192 @@
           "expertise2": "",
           "expertise3": ""
         }
+      },
+      "wounds" : {
+        "head" : {
+          "label": "Head",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        },
+        "torso" : {
+          "label": "Torso",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        },
+        "larm" : {
+          "label": "Left Arm",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        },
+        "rarm" : {
+          "label": "Right Arm",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        },
+        "lhand" : {
+          "label": "Left Hand",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        },
+        "rhand" : {
+          "label": "Right Hand",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        },
+        "lleg" : {
+          "label": "Left Leg",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        },
+        "rleg" : {
+          "label": "Right Leg",
+          "wounds1" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds2" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds3" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds4" : {
+            "1st": false,
+            "2nd": false
+          },
+          "wounds5" : {
+            "1st": false,
+            "2nd": false
+          }
+        }
       }
 
     },
@@ -495,7 +681,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "wound", "ancestry"],
+    "types": ["item", "feature", "ancestry"],
     "templates": {
       "base": {
         "description": ""
@@ -509,10 +695,6 @@
     },
     "feature": {
       "templates": ["base"]
-    },
-    "wound": {
-      "templates": ["base"],
-      "woundLevel": 1
     },
     "ancestry": {
       "size": 0,

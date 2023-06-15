@@ -84,14 +84,6 @@ export class SoTPActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
-    const wounds = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: []
-    };
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -104,18 +96,11 @@ export class SoTPActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
-      // Append to wounds.
-      else if (i.type === 'wound') {
-        if (i.system.woundLevel != undefined) {
-          wounds[i.system.woundLevel].push(i);
-        }
-      }
     }
 
     // Assign and return
     context.gear = gear;
     context.features = features;
-    context.wounds = wounds;
   }
 
   /* -------------------------------------------- */
@@ -226,11 +211,7 @@ export class SoTPActorSheet extends ActorSheet {
 
   _onSelect(event) {
     event.preventDefault();
-    //const element = event.currentTarget;
-    //var index = element.selectedIndex;
-    //var val = element.value;
-    //var skillpath = element.name;
-    //console.log(val);
   }
+
 
 }
