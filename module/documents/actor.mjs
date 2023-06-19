@@ -159,8 +159,8 @@ export class SoTPActor extends Actor {
     if(consumable.value < 0) {
       consumable.value = 0;
     }
-    if(consumable.cap - consumable.value > (consumable.max / 5)){
-      consumable.cap = consumable.value + (consumable.max / 5);
+    if(consumable.cap - consumable.value > Math.round(consumable.max / 5)){
+      consumable.cap = consumable.value + Math.round(consumable.max / 5);
     }
     if(consumable.cap >= consumable.max){
       consumable.cap = consumable.max;

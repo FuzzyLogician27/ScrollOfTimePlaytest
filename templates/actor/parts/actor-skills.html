@@ -25,7 +25,7 @@
         </li></summary>
         <h4>
             <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @combatskills.{{key}}.value + @combatskills.{{key}}.expval1" data-label="{{skill.label}}">{{numberFormat skill.expval1 decimals=0 sign=true}}</div>
-            <input type="text" name="system.skills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
+            <input type="text" name="system.combatskills.{{key}}.expertise1" value="{{skill.expertise1}}"/>
         </h4>
         <h4>
             <div class = "expertise rollable" data-roll = "(@attributes.{{skill.selectedattribute}}.mod)d10 + @combatskills.{{key}}.value + @combatskills.{{key}}.expval2" data-label="{{skill.label}}">{{numberFormat skill.expval2 decimals=0 sign=true}}</div>
