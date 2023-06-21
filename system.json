@@ -18,7 +18,7 @@
     "name": "ancestries",
     "label": "Ancestries",
     "system": "SoTP",
-    "path": "packs/ancestries.db",
+    "path": "/packs/ancestries.db",
     "type": "Item",
     "private": false,
     "flags":{}
@@ -27,7 +27,7 @@
     "name": "equipment",
     "label": "Equipment",
     "system": "SoTP",
-    "path": "packs/equipment.db",
+    "path": "/packs/equipment.db",
     "type": "Item",
     "private": false,
     "flags":{}
