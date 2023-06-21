@@ -86,14 +86,14 @@
         <div class="resource flex-group-center">
           <label for="system.ancestry.name" class="resource-label">Ancestry</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.ancestry.name" value="{{system.ancestry.name}}"/>
+          <input type="text" name="ancestry.name" value="{{ancestry.name}}"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
           <label for="system.ancestryid" class="resource-label">AncestryID</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.ancestryid" value="{{system.ancestryid}}" data-dtype="Number"/>
+          <input type="text" name="ancestry._id" value="{{ancestry._id}}"  readonly/>
           </div>
         </div>
 
@@ -130,7 +130,7 @@
               <label for="system.attributes.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="(@attributes.{{key}}.mod)d10" data-label="{{attribute.label}}">{{attribute.label}}</label>
               <input type="text" name="system.attributes.{{key}}.baseval" value="{{attribute.baseval}}" data-dtype="Number"/>
               <span> => </span>
-              <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+              <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" readonly data-dtype="Number"/>
               <span class="attribute-mod rollable" data-roll="(@attributes.{{key}}.mod)d10" data-label="{{attribute.label}}">{{numberFormat attribute.mod decimals=0 sign=true}}</span>
             </div>
             {{/each}}

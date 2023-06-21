@@ -84,6 +84,7 @@ export class SoTPActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    var ancestry;
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -96,11 +97,15 @@ export class SoTPActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
+      else if (i.type === 'ancestry') {
+        ancestry = i;
+      }
     }
 
     // Assign and return
     context.gear = gear;
     context.features = features;
+    context.ancestry = ancestry;
   }
 
   /* -------------------------------------------- */

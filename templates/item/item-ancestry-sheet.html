@@ -6,6 +6,9 @@
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </div>
+    <div class="attribute flexrow flex-group-center">
+      <input type="text" name="{{options}}-uuid" value="{{item.uuid}}" readonly data-dtype="Number"/>
+    </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
@@ -25,6 +28,17 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
+      {{#each system.statchanges as |stat id|}}
+      <div class="attribute flexrow flex-group-center">
+        <label for="system.statchanges{{id}}" class="resource-label flexlarge align-left" data-label="{{stat}}">system.statchanges.{{id}}</label>
+        <input type="text" name="system.statchanges.{{id}}" value="{{stat}}" data-dtype="Number"/>
+      </div>
+      {{/each}}
+
+
+      <div class="attribute flexrow flex-group-center">
+        <input type="text" name="system.size" value="{{system.size}}" data-dtype="Number"/>
+      </div>
     </div>
   </section>
 </form>
