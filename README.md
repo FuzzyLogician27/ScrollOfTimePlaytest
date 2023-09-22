@@ -1,26 +1,18 @@
-# Boilerplate System
+# Scroll of Time Playtest System
 
 ![Foundry v11](https://img.shields.io/badge/foundry-v11-green)
 
-This system is a boilerplate system that you can use as a starting point for building your own custom systems. It's similar to Simple World-building, but has examples of creating attributes in code rather than dynamically through the UI.
+This system is a FoundryVTT intedration built from the [Boilerplate system](https://foundryvtt.wiki/en/development/guides/SD-tutorial) for FoundryVTT. It utilises Javascript and custom html and css to create dynamic character sheets that automate some of the system's rules for ease of use.
 
 ## Usage
 
-Before installing this system, you should rename any files that have `boilerplate` in their filename to use whatever machine-safe name your system needs, such as `adnd2e` if you were building a system for 2nd edition Advanced Dungeons & Dragons. In addition, you should search through the files for `boilerplate` and `Boilerplate` and do the same for those, replacing them with appropriate names for your system.
+If you have the FoundryVTT program installed and intend to GM this system, download these files and place them under `../Data/systems/SoTP.` After reloading Foundry, you should see this system in your list of installed systems, and can then create Worlds utilising the system.
 
-### System Generator
+This system is somewhat compatible with the Drag Ruler module. To set it up, first install and enable the module in the world that you wish to use it in, then go to module settings, open up the Speed Provider Settings, input the Speed Attribute as `actor.data.system.speed.value`, and set the Dash Multiplier to 0.5. Colour the Walk and Run rulers to taste.
 
-This project is also available as generator that can be run with npm: https://www.npmjs.com/package/generator-foundry
+## A Note From The Author On Intent
 
-### Vue 3 Boilerplate
-
-Alternatively, there's another build of this system that supports using Vue 3 components (ES module build target) for character sheet templates.
-
-Head over to the [Vue3Boilerplate System](https://gitlab.com/asacolips-projects/foundry-mods/vue3boilerplate) repo if you're interested in using Vue!
-
-### Tutorial
-
-For much more information on how to use this system as a starting point for making your own, see the [full tutorial on the Foundry Wiki](https://foundryvtt.wiki/en/development/guides/SD-tutorial)!
+This is still a work in progress, and is currently intended to be rapidly iterable upon rather than completely automated. In the future, once the rules of the system are more finalised (after more playtesting) automation and overall elegance will become a greater priority. Additionally, this is my first foray into more complex css, html, and Javascript, so it is a learning experience!
 
 ## Sheet Layout
 
@@ -36,7 +28,7 @@ This system includes a handful of helper CSS classes to help you lay out your sh
 * `grid`: When combined with the `grid-Ncol` classes, this will lay out child elements in a grid.
 * `grid-Ncol`: Replace `N` with any number from 1-12, such as `grid-3col`. When combined with `grid`, this will layout child elements in a grid with a number of columns equal to the number specified.
 
-## Compiling the CSS
+## Editing and Compiling the CSS
 
 This repo includes both CSS for the theme and SCSS source files. If you're new to CSS, it's probably easier to just work in those files directly and delete the SCSS directory. If you're interested in using a CSS preprocessor to add support for nesting, variables, and more, you can run `npm install` in this directory to install the dependencies for the scss compiler. After that, just run `npm run gulp` to compile the SCSS and start a process that watches for new changes.
 
