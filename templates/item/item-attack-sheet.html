@@ -1,0 +1,49 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="attributes">Attributes</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      {{!-- As you add new fields, add them in here! --}}
+      <div class="resource">
+        <label class="resource-label">Reach</label>
+        <input type="text" name="system.reach" value="{{system.reach}}" data-dtype="Number"/>
+        <label class="resource-label">Damage</label>
+        <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number"/>
+        <label class="resource-label">Two-Handed</label>
+        <input type = "checkbox" name = "system.twohand" {{checked system.twohand}} value= "{{system.twohand}}" data-dtype= "Boolean"/><br />
+        <label class="resource-label">Damage Type</label>
+        <input type="text" name="system.damagetype" value="{{system.damagetype}}"/>
+        <label class="resource-label">Breach</label>
+        <input type="text" name="system.breach" value="{{system.breach}}" data-dtype="Number"/>
+        <label class="resource-label">Skill</label>
+        <input type="text" name="system.skill" value="{{system.skill}}"/>
+        <label class="resource-label">Expertise</label>
+        <input type="text" name="system.expertise" value="{{system.expertise}}" data-dtype="Number"/>
+        <label class="resource-label">Hit Modifier</label>
+        <input type="text" name="system.hitmodifier" value="{{system.hitmodifier}}" data-dtype="Number"/>
+        <label class="resource-label">Traits</label>
+        <input type="text" name="system.traits" value="{{system.traits}}"/>
+      </div>
+    </div>
+  </section>
+</form>

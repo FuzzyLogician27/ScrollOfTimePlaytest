@@ -7,6 +7,7 @@ import { SoTPItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SOTP } from "./helpers/config.mjs";
+import * as canvas from "./canvas/_module.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -19,6 +20,7 @@ Hooks.once('init', async function() {
   game.sotp = {
     SoTPActor,
     SoTPItem,
+    canvas,
     rollItemMacro
   };
 
@@ -44,9 +46,13 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("sotp", SoTPItemSheet, { makeDefault: true });
 
+  SquareGrid.prototype.measureDistances = canvas.measureDistances;
+
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
 });
+
+
 
 /* -------------------------------------------- */
 /*  Handlebars Helpers                          */

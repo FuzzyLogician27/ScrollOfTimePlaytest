@@ -1,8 +1,35 @@
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
 
-  {{!-- Sheet Header --}}
+  <div class="grid grid-2col" style="display: flex;">
+    <section class="sidebar sidebarcontainer constantbar">
+      <div>
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        <div class="sidebartop"></div>
+        <div class="content overlaybackground sidebarmiddle" style="width: 120px">
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+            use both the "grid" and "grid-Ncol" class where "N" can be any number
+            from 1 to 12 and will create that number of columns.  --}}
+            <div class="flexcol attributeholder">
+              {{#each system.attributes as |attribute key|}}
+              <div class="attribute flexrow flex-group-center attributelayout">
+                <div class="attribute-mod rollable" data-roll="(@attributes.{{key}}.mod)d10" data-label="{{attribute.label}}">{{attribute.value}}</div>
+                <input class="attributeinput" type="text" name="system.attributes.{{key}}.baseval" value="{{attribute.baseval}}" data-dtype="Number"/>
+                <i class="fas {{attribute.icon}} attributelogo"></i>
+              </div>
+              <div class = "align-center" style="padding-bottom: 10px;"> 
+                <label for="system.attributes.{{key}}.value" class="rollable flexlarge attributelabel" data-roll="(@attributes.{{key}}.mod)d10" data-label="{{attribute.label}}">{{attribute.label}}</label>
+              </div>
+              {{/each}}
+            </div>
+        </div>
+        <div class="sidebarbottom"></div>
+        
+      </div>  
+    </section>
+    <section>
+      {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
@@ -84,18 +111,19 @@
         </div>
 
         <div class="resource flex-group-center">
+          <label for="system.size" class="resource-label">Size</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.size" value="{{system.size}}"  readonly/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
           <label for="system.ancestry.name" class="resource-label">Ancestry</label>
           <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="ancestry.name" value="{{ancestry.name}}"/>
           </div>
         </div>
 
-        <div class="resource flex-group-center">
-          <label for="system.ancestryid" class="resource-label">AncestryID</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="ancestry._id" value="{{ancestry._id}}"  readonly/>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -117,33 +145,8 @@
 
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
-      <section class="grid grid-3col">
-        <aside class="sidebar">
-
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-          <div class="attributes flexcol">
-            {{#each system.attributes as |attribute key|}}
-            <div class="attribute flexrow flex-group-center">
-              <i class="fas {{attribute.icon}}"></i>
-              <label for="system.attributes.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="(@attributes.{{key}}.mod)d10" data-label="{{attribute.label}}">{{attribute.label}}</label>
-              <input type="text" name="system.attributes.{{key}}.baseval" value="{{attribute.baseval}}" data-dtype="Number"/>
-              <span> => </span>
-              <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" readonly data-dtype="Number"/>
-              <span class="attribute-mod rollable" data-roll="(@attributes.{{key}}.mod)d10" data-label="{{attribute.label}}">{{numberFormat attribute.mod decimals=0 sign=true}}</span>
-            </div>
-            {{/each}}
-          </div>
-        </aside>
-
-        {{!-- For the main features list, span the right two columns --}}
-        <section class="main grid-span-2">
-          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-          {{> "systems/sotp/templates/actor/parts/actor-features.html"}}
-        </section>
-
-      </section>
+      {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+      {{> "systems/sotp/templates/actor/parts/actor-attacks.html"}}
     </div>
 
     {{!-- Biography Tab --}}
@@ -173,5 +176,13 @@
     </div>
 
   </section>
+    </section>
+  </div>
+  
+
+
+
+
+  
 </form>
 

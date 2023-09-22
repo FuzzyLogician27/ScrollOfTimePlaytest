@@ -28,17 +28,46 @@
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
-      {{#each system.statchanges as |stat id|}}
       <div class="attribute flexrow flex-group-center">
-        <label for="system.statchanges{{id}}" class="resource-label flexlarge align-left" data-label="{{stat}}">system.statchanges.{{id}}</label>
-        <input type="text" name="system.statchanges.{{id}}" value="{{stat}}" data-dtype="Number"/>
-      </div>
-      {{/each}}
-
-
-      <div class="attribute flexrow flex-group-center">
+        <label for="system.size" class="resource-label flexlarge align-left" data-label="{{system.size}}">Size</label>
         <input type="text" name="system.size" value="{{system.size}}" data-dtype="Number"/>
       </div>
+      <div class="attribute flexrow flex-group-center">
+        <label for="system.speed" class="resource-label flexlarge align-left" data-label="{{system.speed}}">Speed</label>
+        <input type="text" name="system.speed" value="{{system.speed}}" data-dtype="Number"/>
+      </div>
+      <details>
+        <summary>Attribute Changes</summary>
+        {{#each system.statchanges as |stat id|}}
+        <div class="attribute flexrow flex-group-center">
+          <label for="system.statchanges.{{id}}" class="resource-label flexlarge align-left" data-label="{{stat}}">system.statchanges.{{id}}</label>
+          <input type="text" name="system.statchanges.{{id}}" value="{{stat}}" data-dtype="Number"/>
+        </div>
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          Consumable Stats Changes
+        </summary>
+        {{#each system.consstatchanges as |cstat id|}}
+        <div class="attribute flexrow flex-group-center">
+          <label for="system.consstatchanges.{{id}}" class="resource-label flexlarge align-left" data-label="{{cstat}}">system.consstatchanges.{{id}}</label>
+          <input type="text" name="system.consstatchanges.{{id}}" value="{{cstat}}" data-dtype="Number"/>
+        </div>
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          Derived Stats Changes
+        </summary>
+        {{#each system.derivedstatchanges as |dstat id|}}
+        <div class="attribute flexrow flex-group-center">
+          <label for="system.derivedstatchanges.{{id}}" class="resource-label flexlarge align-left" data-label="{{dstat}}">system.derivedstatchanges.{{id}}</label>
+          <input type="text" name="system.derivedstatchanges.{{id}}" value="{{dstat}}" data-dtype="Number"/>
+        </div>
+        {{/each}}
+      </details>
+      
     </div>
   </section>
 </form>

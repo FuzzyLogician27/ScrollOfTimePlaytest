@@ -1,11 +1,12 @@
 .window-app {
   font-family: $font-primary;
+  background-color: $c-paper;
 }
 
 .rollable {
   &:hover,
   &:focus {
-    color: #000;
+    //color: $c-paper;
     text-shadow: 0 0 10px red;
     cursor: pointer;
   }

@@ -7,6 +7,7 @@
   return loadTemplates([
 
     // Actor partials.
+    "systems/sotp/templates/actor/parts/actor-attacks.html",
     "systems/sotp/templates/actor/parts/actor-features.html",
     "systems/sotp/templates/actor/parts/actor-items.html",
     "systems/sotp/templates/actor/parts/actor-wounds.html",

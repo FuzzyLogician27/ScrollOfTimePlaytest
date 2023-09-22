@@ -1,13 +1,44 @@
-<ol class="items-list">
+<div class="resource flex-group-center">
+  <span>Bleed: </span>
+  <div><input type="text" name="system.bleed" value="{{system.bleed}}" data-dtype="Number"/></div>
+</div>
+
+<ol class="items-list grid-2col">
   {{#each system.wounds as |wound key|}}
-  <li class="item flexrow items-header">{{wound.label}}</li>
+  <li class="item flexrow items-header grid-2col">
+    <div class="item-name">{{wound.label}}</div>
+    <div class="item-controls">
+      <div class="item-control">Days Since Last Heal:</div>
+      <input class="item-control" type="text" name="system.wounds.{{key}}.healcounter" value="{{wound.healcounter}}" data-dtype="Number"/>
+    </div>
+  </li>
+  <table style="width:100%">
+    <tr>
+      <th>Breach</th>
+      <th>Blunt</th>
+      <th>Piercing</th>
+      <th>Slashing</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="system.wounds.{{key}}.outerarmour.breach" value="{{wound.outerarmour.breach}}" data-dtype="Number"/></td>
+      <td><input type="text" name="system.wounds.{{key}}.outerarmour.blunt" value="{{wound.outerarmour.blunt}}" data-dtype="Number"/></td>
+      <td><input type="text" name="system.wounds.{{key}}.outerarmour.piercing" value="{{wound.outerarmour.piercing}}" data-dtype="Number"/></td>
+      <td><input type="text" name="system.wounds.{{key}}.outerarmour.slashing" value="{{wound.outerarmour.slashing}}" data-dtype="Number"/></td>
+    </tr>
+    <tr>
+      <td><input type="text" name="system.wounds.{{key}}.innerarmour.breach" value="{{wound.innerarmour.breach}}" data-dtype="Number"/></td>
+      <td><input type="text" name="system.wounds.{{key}}.innerarmour.blunt" value="{{wound.innerarmour.blunt}}" data-dtype="Number"/></td>
+      <td><input type="text" name="system.wounds.{{key}}.innerarmour.piercing" value="{{wound.innerarmour.piercing}}" data-dtype="Number"/></td>
+      <td><input type="text" name="system.wounds.{{key}}.innerarmour.slashing" value="{{wound.innerarmour.slashing}}" data-dtype="Number"/></td>
+    </tr>
+  </table>
   <table>
   <tr>
-    <th>Level 1</th>
-    <th>Level 2</th>
-    <th>Level 3</th>
-    <th>Level 4</th>
-    <th>Level 5</th>
+    <th>Level 1: {{wound.wounds1.impact}}+</th>
+    <th>Level 2: {{wound.wounds2.impact}}+</th>
+    <th>Level 3: {{wound.wounds3.impact}}+</th>
+    <th>Level 4: {{wound.wounds4.impact}}+</th>
+    <th>Level 5: {{wound.wounds5.impact}}+</th>
   </tr>
   <tr>
     <td style = "text-align:center;"><input type = "checkbox" name = "system.wounds.{{key}}.wounds1.1st" {{checked wound.wounds1.1st}} value= "{{wound.wounds1.1st}}" data-dtype= "Boolean"/></td>

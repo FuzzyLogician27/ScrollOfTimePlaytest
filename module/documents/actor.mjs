@@ -58,6 +58,7 @@ export class SoTPActor extends Actor {
     for (let [key, attribute] of Object.entries(systemData.attributes)) {
       // Calculate the modifier using d10 rules.
       attribute.mod = Math.round((attribute.value / 10));
+      attribute.twohandmod = attribute.mod + Math.floor((attribute.mod / 3));
     }
 
     this.setupSkills(systemData.combatskills);
@@ -131,6 +132,43 @@ export class SoTPActor extends Actor {
     // Process additional NPC data here.
   }
 
+  setAncestryVals(ancestry) {
+    let system = this.system;
+    const sch = ancestry.system.statchanges;
+    let changeArray = [
+      sch.str,
+      sch.dex,
+      sch.con,
+      sch.int,
+      sch.wis,
+      sch.awr,
+      sch.cha,
+      sch.per,
+      sch.ins
+    ];
+    this.update({"system.attributes.str.ancestryval": changeArray[0]});
+    this.update({"system.attributes.dex.ancestryval": changeArray[1]});
+    this.update({"system.attributes.con.ancestryval": changeArray[2]});
+    this.update({"system.attributes.int.ancestryval": changeArray[3]});
+    this.update({"system.attributes.wis.ancestryval": changeArray[4]});
+    this.update({"system.attributes.awr.ancestryval": changeArray[5]});
+    this.update({"system.attributes.cha.ancestryval": changeArray[6]});
+    this.update({"system.attributes.per.ancestryval": changeArray[7]});
+    this.update({"system.attributes.ins.ancestryval": changeArray[8]});
+
+    this.update({"system.speed.max": ancestry.system.speed});
+    this.update({"system.size": ancestry.system.size});
+
+    this.update({"system.consumableattributes.stamina.ancestryval": ancestry.system.consstatchanges.stamina});
+    this.update({"system.consumableattributes.willpower.ancestryval": ancestry.system.consstatchanges.willpower});
+    this.update({"system.consumableattributes.morale.ancestryval": ancestry.system.consstatchanges.morale});
+
+    this.update({"system.derivedattributes.dodge.ancestryval": ancestry.system.derivedstatchanges.dodge});
+    this.update({"system.derivedattributes.control.ancestryval": ancestry.system.derivedstatchanges.control});
+    this.update({"system.derivedattributes.toughness.ancestryval": ancestry.system.derivedstatchanges.toughness});
+    this.update({"system.derivedattributes.bulkincrement.ancestryval": ancestry.system.derivedstatchanges.bulkincrement});
+  }
+
   setupSkills(skilltype) {
     for (let [key, skill] of Object.entries(skilltype)) {
       if(skill.rank < 0){
@@ -151,6 +189,8 @@ export class SoTPActor extends Actor {
   }
 
   setConsumableAttributes(attrData, consumable) {
+    //console.log(actorData.system.derivedattributes.bulk.value);
+    const bulk = this.system.derivedattributes.bulk.value
     consumable.baseval = Math.round((attrData[0].value + attrData[1].value + attrData[2].value) / 5);
     consumable.max = consumable.baseval + consumable.ancestryval;
     if(consumable.value >= consumable.cap) {
@@ -159,9 +199,29 @@ export class SoTPActor extends Actor {
     if(consumable.value < 0) {
       consumable.value = 0;
     }
-    if(consumable.cap - consumable.value > (consumable.max / 5)){
-      consumable.cap = consumable.value + Math.round(consumable.max / 5);
+    if(consumable === this.system.consumableattributes.stamina)
+    {
+      if(consumable.cap > (consumable.max - (5 * bulk)))
+      {
+        consumable.cap = consumable.max - (5 * bulk);
+      }
+      if(consumable.cap - consumable.value > ((consumable.max)/ 5))
+      {
+        consumable.cap = consumable.value + Math.round(consumable.max / 5);
+      }
+    } else 
+    {
+      if(consumable.cap > (consumable.max))
+      {
+        consumable.cap = consumable.max;
+      }
+      if(consumable.cap - consumable.value > (consumable.max/ 5))
+      {
+        consumable.cap = consumable.value + Math.round(consumable.max / 5);
+      }
     }
+
+    
     if(consumable.cap >= consumable.max){
       consumable.cap = consumable.max;
     }
@@ -171,12 +231,23 @@ export class SoTPActor extends Actor {
     const attrData = actorData.system.attributes;
     const derivedData = actorData.system.derivedattributes;
 
-    derivedData.dodge.value = Math.round(((2 * attrData.dex.value) + attrData.awr.value) / 3) + 10 - derivedData.dodge.sizebonus - derivedData.dodge.bulkpenalty;
+    derivedData.dodge.value = Math.round(((2 * attrData.dex.value) + attrData.awr.value) / 3) - (5 * actorData.system.size) - (5 * derivedData.bulk.value);
     derivedData.dodge.mod = Math.round((derivedData.dodge.value / 10));
-    derivedData.control.value = Math.round(((2 * attrData.str.value) + attrData.dex.value) / 3) + derivedData.control.sizebonus;
+    derivedData.control.value = Math.round(((2 * attrData.str.value) + attrData.dex.value) / 3) + (5 * actorData.system.size) + derivedData.control.ancestryval;
     derivedData.control.mod = Math.round((derivedData.control.value / 10));
-    derivedData.toughness.value = Math.round((attrData.con.value - 50) / 5) + derivedData.toughness.ancestryval + derivedData.toughness.sizebonus;
-    derivedData.bulkincrement.value = Math.round(attrData.str.value / 5) + derivedData.bulkincrement.ancestryval;
+    derivedData.control.twohandmod = derivedData.control.mod + Math.floor((derivedData.control.mod / 3));
+    derivedData.toughness.value = Math.round((attrData.con.value - 50) / 5) + derivedData.toughness.ancestryval + (5 * (actorData.system.size >= 0 ? (Math.ceil(actorData.system.size / 2)) : (Math.floor(actorData.system.size / 2))));
+    derivedData.bulkincrement.value = Math.round(attrData.str.value / 5)
+    if(actorData.system.size > 0)
+    {
+      derivedData.bulkincrement.value = derivedData.bulkincrement.value * (1 + actorData.system.size);
+    } else if (actorData.system.size < 0)
+    {
+      derivedData.bulkincrement.value = derivedData.bulkincrement.value / (1 - actorData.system.size);
+    }
+    derivedData.bulkincrement.value += derivedData.bulkincrement.ancestryval;
+    derivedData.bulk.value = Math.floor(derivedData.bulk.carriedweight / derivedData.bulkincrement.value);
+    this.update({"system.derivedattributes.bulk.value" : derivedData.bulk.value});
     derivedData.poise.max = Math.round((3 * derivedData.control.value) / 10);
     if(derivedData.poise.value > derivedData.poise.max) {
       derivedData.poise.value = derivedData.poise.max;
@@ -185,4 +256,17 @@ export class SoTPActor extends Actor {
       derivedData.poise.value = 0;
     }
   }
+
+  calculateInventory(gear)
+  {
+    var inventory = gear;
+    var weight = 0;
+    for(let [key, i] of Object.entries(inventory)) {
+      var item = i.system
+      weight += (item.weight * item.quantity);
+    }
+    let system = this.system;
+    this.update({"system.derivedattributes.bulk.carriedweight" : weight});
+  }
+
 }

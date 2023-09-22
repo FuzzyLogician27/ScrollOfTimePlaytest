@@ -3,6 +3,7 @@
     "types": ["character", "npc"],
     "templates": {
       "base": {
+        "size": 0,
         "speed": {
           "value": 5,
           "min": 0,
@@ -14,12 +15,11 @@
     "character": {
       "templates": ["base"],
       "ancestryid": 0,
-      "ancestry": {
-      },
+      "ancestry": {},
+      "splitactionpenalty":0,
       "attributes": {
-
         "str": {
-          "icon": "fa-hand-fist",
+          "icon": "fa-dumbbell",
           "ancestryval": 0,
           "baseval": 50,
           "value": 50
@@ -118,6 +118,10 @@
         },
         "bulkincrement": {
           "ancestryval": 0,
+          "value": 0
+        },
+        "bulk": {
+          "carriedweight": 0,
           "value": 0
         }
       },
@@ -462,187 +466,332 @@
           "expertise3": ""
         }
       },
+      "bleed":0,
       "wounds" : {
         "head" : {
           "label": "Head",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 16,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 26,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 36,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 46,
             "1st": false,
             "2nd": false
           }
         },
         "torso" : {
           "label": "Torso",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 21,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 31,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 41,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 56,
             "1st": false,
             "2nd": false
           }
         },
         "larm" : {
           "label": "Left Arm",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 21,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 31,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 41,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 51,
             "1st": false,
             "2nd": false
           }
         },
         "rarm" : {
           "label": "Right Arm",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 21,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 31,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 41,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 51,
             "1st": false,
             "2nd": false
           }
         },
         "lhand" : {
           "label": "Left Hand",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 16,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 26,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 41,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 51,
             "1st": false,
             "2nd": false
           }
         },
         "rhand" : {
           "label": "Right Hand",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 16,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 26,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 41,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 51,
             "1st": false,
             "2nd": false
           }
         },
         "lleg" : {
           "label": "Left Leg",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 21,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 31,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 46,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 56,
             "1st": false,
             "2nd": false
           }
         },
         "rleg" : {
           "label": "Right Leg",
+          "healcounter": 0,
+          "outerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
+          "innerarmour":{
+            "breach": 0,
+            "blunt": 0,
+            "piercing": 0,
+            "slashing": 0
+          },
           "wounds1" : {
+            "impact": 1,
             "1st": false,
             "2nd": false
           },
           "wounds2" : {
+            "impact": 21,
             "1st": false,
             "2nd": false
           },
           "wounds3" : {
+            "impact": 31,
             "1st": false,
             "2nd": false
           },
           "wounds4" : {
+            "impact": 46,
             "1st": false,
             "2nd": false
           },
           "wounds5" : {
+            "impact": 56,
             "1st": false,
             "2nd": false
           }
@@ -656,7 +805,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "ancestry"],
+    "types": ["item", "feature", "ancestry", "attack"],
     "templates": {
       "base": {
         "description": ""
@@ -666,7 +815,7 @@
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "formula": "(@str.mod)d10"
     },
     "feature": {
       "templates": ["base"]
@@ -682,17 +831,32 @@
         "wis": 0,
         "awr": 0,
         "cha": 0,
-        "pe": 0,
-        "ins": 0,
+        "per": 0,
+        "ins": 0
+      },
+      "consstatchanges": {
         "stamina": 0,
         "willpower": 0,
-        "morale": 0,
+        "morale": 0
+      },
+      "derivedstatchanges": {
         "dodge": 0,
         "control": 0,
         "toughness": 0,
         "bulkincrement": 0
+      },
+      "traits": []
     },
-    "traits": []
+    "attack": {
+      "reach": 0,
+      "damage": 6,
+      "twohand": false,
+      "damagetype":"slashing",
+      "breach": 50,
+      "skill": "onehandslash",
+      "expertise": 0,
+      "hitmodifier": 0,
+      "traits": ""
     }
   }
 }
