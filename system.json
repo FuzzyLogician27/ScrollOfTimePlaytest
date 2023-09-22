@@ -5,8 +5,8 @@
   "version": "1.2.0",
   "compatibility": {
     "minimum": 10,
-    "verified": "10.291",
-    "maximum": 10
+    "verified": "11.302",
+    "maximum": 11
   },
   "authors": [{
     "name": "FuzzyLogician27"
@@ -17,19 +17,25 @@
   "packs": [{
     "name": "ancestries",
     "label": "Ancestries",
-    "system": "SoTP",
-    "path": "packs/ancestries.db",
+    "path": "/packs/ancestries",
     "type": "Item",
-    "private": false,
+    "system": "SoTP",
+    "ownership": {
+      "PLAYER": "OBSERVER",
+      "ASSISTANT": "OWNER"
+    },
     "flags":{}
   },
   {
     "name": "equipment",
     "label": "Equipment",
-    "system": "SoTP",
-    "path": "packs/equipment.db",
+    "path": "/packs/equipment",
     "type": "Item",
-    "private": false,
+    "system": "SoTP",
+    "ownership": {
+      "PLAYER": "OBSERVER",
+      "ASSISTANT": "OWNER"
+    },
     "flags":{}
   }
   ],

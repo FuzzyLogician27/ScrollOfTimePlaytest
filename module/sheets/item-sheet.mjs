@@ -59,5 +59,11 @@ export class SoTPItemSheet extends ItemSheet {
     if (!this.isEditable) return;
 
     // Roll handlers, click handlers, etc. would go here.
+    html.find(".selector").change(this._onSelect.bind(this));
+
+  }
+
+  _onSelect(event) {
+    event.preventDefault();
   }
 }

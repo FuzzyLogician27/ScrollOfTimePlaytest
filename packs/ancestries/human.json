@@ -1,7 +1,7 @@
 {
-    "_id": "9",
-    "type": "ancestry",
     "name": "Human",
+    "type": "ancestry",
+    "img": "",
     "description": "Test",
     "size": 0,
     "speed": 6,

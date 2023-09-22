@@ -5,7 +5,6 @@ import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/ef
  * @extends {ActorSheet}
  */
 export class SoTPActorSheet extends ActorSheet {
-
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -84,6 +83,8 @@ export class SoTPActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    const attacks = [];
+    var ancestry;
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -96,11 +97,25 @@ export class SoTPActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
+      else if (i.type === 'ancestry') {
+        ancestry = i;
+      }
+      else if(i.type === 'attack') {
+        attacks.push(i);
+      }
     }
 
     // Assign and return
     context.gear = gear;
+    if(gear != null) {
+      this.actor.calculateInventory(gear)
+    }
     context.features = features;
+    context.ancestry = ancestry;
+    context.attacks = attacks;
+    if(ancestry != null) {
+      this.actor.setAncestryVals(ancestry);
+    }
   }
 
   /* -------------------------------------------- */
@@ -148,6 +163,8 @@ export class SoTPActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+
   }
 
   /**
@@ -212,6 +229,8 @@ export class SoTPActorSheet extends ActorSheet {
   _onSelect(event) {
     event.preventDefault();
   }
+
+
 
 
 }

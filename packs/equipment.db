@@ -1,1 +1,0 @@
-{"_id":"iuhiuhw","name":"Anvil","description":"Test Item.","quantity":1,"weight":500,"formula":"d10 + @str.mod + ceil(@lvl / 2)"}
