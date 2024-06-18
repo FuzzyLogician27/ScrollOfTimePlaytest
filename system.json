@@ -2,18 +2,44 @@
   "id": "SoTP",
   "title": "Scroll of Time Playtest",
   "description": "The playtest version of the Scroll of Time system for FoundryVTT!",
-  "version": "1.2.5",
-  "compatibility": {
-    "minimum": 10,
-    "verified": "12.327",
-    "maximum": 12
+  "authors": [
+    {
+      "name": "FuzzyLogician27",
+      "discord": ""
+    }
+  ],
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "html", "hbs", "json"],
+      "paths": ["css", "lang", "templates"]
+    }
   },
-  "authors": [{
-    "name": "FuzzyLogician27"
-  }],
+  "url": "https://github.com/FuzzyLogician27/SoTP",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "Replace this with a link to file issues or tickets",
+  "changelog": "CHANGELOG.md",
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/boilerplate/assets/anvil-impact.png",
+      "thumbnail": "systems/boilerplate/assets/anvil-impact.png"
+    }
+  ],
+  "version": "3.0.0",
+  "compatibility": {
+    "minimum": 12,
+    "verified": "12.327"
+  },
   "esmodules": ["module/sotp.mjs"],
   "styles": ["css/sotp.css"],
-  "scripts": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
   "packs": [{
     "name": "ancestries",
     "label": "Ancestries",
@@ -39,20 +65,17 @@
     "flags":{}
   }
   ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "grid.distance": 0.5,
-  "grid.units": "m",
+  "packFolders": [],
+  "socket": false,
+  "manifest": "https://raw.githubusercontent.com/FuzzyLogician27/SoTP/v12update/system.json",
+  "download": "This must link to a .zip file of the current version",
+  "background": "systems/sotp/assets/anvil-impact.png",
+  "grid": {
+    "type": 1,
+    "distance": 0.5,
+    "units": "m",
+    "diagonals": 4
+  },
   "primaryTokenAttribute": "speed",
-  "secondaryTokenAttribute": "power",
-  "url": "https://github.com/FuzzyLogician27/SoTP",
-  "manifest": "https://raw.githubusercontent.com/FuzzyLogician27/SoTP/main/system.json",
-  "download": "",
-  "license": "LICENSE.txt",
-  "changelog": "CHANGELOG.md"
+  "secondaryTokenAttribute": "power"
 }
