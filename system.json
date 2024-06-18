@@ -5,8 +5,8 @@
   "version": "1.2.0",
   "compatibility": {
     "minimum": 10,
-    "verified": "11.302",
-    "maximum": 11
+    "verified": "12.327",
+    "maximum": 12
   },
   "authors": [{
     "name": "FuzzyLogician27"
@@ -51,7 +51,7 @@
   "primaryTokenAttribute": "speed",
   "secondaryTokenAttribute": "power",
   "url": "",
-  "manifest": "",
+  "manifest": "https://github.com/FuzzyLogician27/SoTP",
   "download": "",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md"
