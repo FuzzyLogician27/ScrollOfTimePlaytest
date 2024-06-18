@@ -2,7 +2,7 @@
   "id": "SoTP",
   "title": "Scroll of Time Playtest",
   "description": "The playtest version of the Scroll of Time system for FoundryVTT!",
-  "version": "1.2.0",
+  "version": "1.2.5",
   "compatibility": {
     "minimum": 10,
     "verified": "12.327",
@@ -46,11 +46,11 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 0.5,
-  "gridUnits": "m",
+  "grid.distance": 0.5,
+  "grid.units": "m",
   "primaryTokenAttribute": "speed",
   "secondaryTokenAttribute": "power",
-  "url": "",
+  "url": "https://github.com/FuzzyLogician27/SoTP",
   "manifest": "https://github.com/FuzzyLogician27/SoTP",
   "download": "",
   "license": "LICENSE.txt",
