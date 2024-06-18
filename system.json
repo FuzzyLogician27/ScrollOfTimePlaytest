@@ -51,7 +51,7 @@
   "primaryTokenAttribute": "speed",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/FuzzyLogician27/SoTP",
-  "manifest": "https://github.com/FuzzyLogician27/SoTP",
+  "manifest": "https://raw.githubusercontent.com/FuzzyLogician27/SoTP/main/system.json",
   "download": "",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md"
